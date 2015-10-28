@@ -83,7 +83,7 @@ $().ready(function () {
         else if (bytes < 1048576) { // KiB
             return digits(bytes / 1024, outputdigits) + " KiB";
         }
-        
+
         return digits(bytes / 1048576, outputdigits) + " MiB";
     }
 
@@ -213,7 +213,7 @@ $().ready(function () {
 
                         $("#" + uid + " .progresstext").html('('
                             + bytes2si2(pos, file.size, 2) + ' @ ' + bytes2si(pos / took, 2) + '/s )');
-                        
+
                         lastprogress = progress;
                     }
                 },
@@ -232,7 +232,7 @@ $().ready(function () {
                     results += '</table></div>';
 
                     results += '<span class="resulttaken">Time taken: ' + digits(took, 2) + 's @ ' + bytes2si(file.size / took, 2) + '/s</span><br />';
-                    
+
                     $("#" + uid).append(results);
 
                     $("#" + uid + " .progress")
@@ -273,43 +273,6 @@ $().ready(function () {
         }
         return true;
     }
-
-    (function () {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-
-    if (!compatible()) {
-        $("#nojavascript").hide();
-
-        // Fade in incompatibility note
-        $("#overlay")
-            .css('opacity', 0)
-            .animate({ opacity: 0.8 }, 2000)
-
-        $("#overlaytextbox")
-            .css('opacity', 0)
-            .animate({ opacity: 1.0 }, 2000)
-
-        $("#missingfeatures").html(
-        "HTML5HASH does not work with this browser. Consider using one of these: \
-            <div id=\"browserads\"> \
-            <div class=\"browserad\"> \
-                    <a href=\"http://affiliates.mozilla.org/link/banner/21269\"> \
-                        <img src=\"http://affiliates.mozilla.org/media/uploads/banners/f5eeeddc214ed8ef15e48bc80e1f53b0da4f0574.png\" alt=\"Download: Fast, Fun, Awesome\" /> \
-                    </a> \
-            </div> \
-            <div class=\"browserad\"> \
-                    <a href=\"http://www.google.com/chrome/\"> \
-                        <img src=\"img/chrome_logo.png\" alt=\"Google Chrome\" /> \
-                    </a> \
-            </div> \
-        </div>");
-
-        return; // Nevermind initialising the handlers
-    }
-
     // Hide incompatibility warning
     $("#overlay").hide();
     $("#overlaytextbox").hide();
